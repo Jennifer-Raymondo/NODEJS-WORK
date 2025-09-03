@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Registration</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../public/css/style.css">
+
+</head>
+
+<body class="bg-light p-5">
+
+  <div class="container">
+    <h2 class="text-center mb-4">Manager Registration</h2>
+
+    <!-- Manager Registration Form -->
+    <div class="card shadow p-4 mb-4">
+      <form id="managerForm" action="../html/manager-signup.html" method="post">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">Full Name</label>
+            <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required
+              name="full name">
+          </div>
+
+
+          <div class="row mb-3">
+            <div class="col">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="Enter email" required name="email">
+            </div>
+            <div class="col">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="tel" id="phone" class="form-control" placeholder="Enter phone number" required name="phone">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+
+              <div class="col">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter password" required
+                  name="password"><br>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Register Manager</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

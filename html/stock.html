@@ -1,0 +1,58 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Registration</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+
+<body class="bg-light p-5">
+
+  <div class="container">
+    <h2 class="text-center mb-4"> Stock </h2>
+
+    <!-- Stock Registration Form -->
+    <div class="card shadow p-4 mb-4">
+      <form action="stock.html" id="stockForm" method="post">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="itemName" class="form-label">Item Name</label>
+            <input type="text" id="itemName" class="form-control" placeholder="Enter item name" required name="name">
+          </div>
+          <div class="col">
+            <label for="category" class="form-label">Category</label>
+            <select id="category" class="form-select" required>
+              <option value="">-- Select --</option>
+              <option value="Timber">Timber</option>
+              <option value="Poles">Poles</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" id="quantity" class="form-control" placeholder="Enter quantity" required name="quantity">
+          </div>
+          <div class="col">
+            <label for="price" class="form-label">Unit Price</label>
+            <input type="number" id="price" class="form-control" placeholder="Enter price" required name="unit price">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Add Stock</button>
+      </form>
+    </div>
+
+    
+</body>
+</html>
+
+</body>
+</html>

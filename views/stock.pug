@@ -1,0 +1,32 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Stock Registration
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
+link(rel='stylesheet' href='../CSS/style.css')
+.container
+  h2.text-center.mb-4  Stock 
+  // Stock Registration Form
+  .card.shadow.p-4.mb-4
+    form#stockForm(action='registerStock' method='post')
+      .row.mb-3
+        .col
+          label.form-label(for='itemName') Item Name
+          input#itemName.form-control(type='text' placeholder='Enter item name' required='' name='name')
+        .col
+          label.form-label(for='category') Category
+          select#category.form-select(required='')
+            option(value='') -- Select --
+            option(value='Timber') Timber
+            option(value='Poles') Poles
+            option(value='Furniture') Furniture
+            option(value='Other') Other
+      .row.mb-3
+        .col
+          label.form-label(for='quantity') Quantity
+          input#quantity.form-control(type='number' placeholder='Enter quantity' required='' name='quantity')
+        .col
+          label.form-label(for='price') Unit Price
+          input#price.form-control(type='number' placeholder='Enter price' required='' name='unit price')
+      button.btn.btn-success.w-100(type='submit') Add Stock
