@@ -1,11 +1,18 @@
 //1 Dependencies
 const express = require('express');
 const path  = require('path');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
+
 
 //import Route
 //const classRoutes = require('./routes/classRoutes');
 const authRoutes = require('./routes/authRoutes');
-const stockRoutes = require('./routes/stockRoutes')
+const stockRoutes = require('./routes/stockRoutes');
+//const captureStockRoutes = require('./routes/capture-stockRoutes');
+
+
 
 //2 Instantiations
 const app = express();
@@ -13,6 +20,21 @@ const port = 3001;
 
 
 //3 Configurations
+//setting up mongodb connections
+mongoose.connect(process.env.MONGODB_URL, {
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true
+});
+
+mongoose.connection
+  .on('open', () => {
+    console.log('Mongoose connection open');
+  })
+  .on('error', (err) => {
+    console.log(`Connection error: ${err.message}`);
+  });
+
+// setting view engine to pug
 app.set( 'view engine', 'pug')
 app.set( 'views', path.join(__dirname, 'views'));
 
@@ -62,8 +84,8 @@ app.use('/home', (req, res, next) => {
 //using imported routes
 //app.use('/', classRoutes);
 app.use('/', authRoutes);
-app.use('/',stockRoutes)
-
+app.use('/',stockRoutes);
+//app.use('/',captureStockRoutes);
 
 
 

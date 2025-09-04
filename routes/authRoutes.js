@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const Usermodel = require('../models/userModel');
 
 //getting the signup form
 
@@ -11,7 +12,9 @@ router.get('/manager-signup', (req, res) => {
 
 //post handle form submission
 router.post('/manager-signup', (req, res) => {
-     console.log(req.body);
+     const user = new Usermodel(req.body);
+      console.log(req.body);
+     user.save()
      res.redirect('/login');
 });
 
@@ -29,6 +32,19 @@ router.post('/login', (req, res) => {
 
 
 
+
+
+//trying to get the capture file path
+router.get('/stock', (req, res) => {
+     res.render('stock',{ title:'manager registration'});
+});
+
+
+//post handle login  form submission
+router.post('/stock', (req, res) => {
+     console.log(req.body);
+     res.redirect('/capture-stock')
+});
 
 
 

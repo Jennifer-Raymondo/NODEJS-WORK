@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Stock Capture
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/style.css')
+// Stock Capture Form
+.container.mt-5
+  .card.shadow.p-4
+    h3.mb-4.text-center Capture Stock
+    form(action='/capture-stock' method='post')
+      .mb-3
+        label.form-label(for='itemName') Item Name
+        input#itemName.form-control(type='text' placeholder='e.g. Cement' name='name')
+      .mb-3
+        label.form-label(for='category') Category
+        select#category.form-select
+          option(selected='' disabled='') Choose category
+          option(value='raw') Raw Materials
+          option(value='finished') Finished Goods
+          option(value='tools') Tools &amp; Equipment
+          option(value='others') Others
+      .mb-3
+        label.form-label(for='quantity') Quantity
+        input#quantity.form-control(type='number' placeholder='Enter quantity' name='quantity')
+      .mb-3
+        label.form-label(for='price') Unit Price
+        input#price.form-control(type='number' placeholder='Enter unit price' name='unitprice')
+      .mb-3
+        label.form-label(for='supplier') Supplier
+        input#supplier.form-control(type='text' placeholder='Enter supplier name' name='supplier')
+      button.btn.btn-primary.w-100(type='submit') Save Stock
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
