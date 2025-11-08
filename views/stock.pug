@@ -9,11 +9,11 @@ link(rel='stylesheet' href='../CSS/style.css')
   h2.text-center.mb-4  Stock 
   // Stock Registration Form
   .card.shadow.p-4.mb-4
-    form#stockForm(action='registerStock' method='post')
+    form#stockForm(action='/registerStock' method='post')
       .row.mb-3
         .col
           label.form-label(for='itemName') Item Name
-          input#itemName.form-control(type='text' placeholder='Enter item name' required='' name='name')
+          input#itemName.form-control(type='text' placeholder='Enter item name' required='itemName' name='itemName')
         .col
           label.form-label(for='category') Category
           select#category.form-select(required='')
@@ -25,8 +25,8 @@ link(rel='stylesheet' href='../CSS/style.css')
       .row.mb-3
         .col
           label.form-label(for='quantity') Quantity
-          input#quantity.form-control(type='number' placeholder='Enter quantity' required='' name='quantity')
+          input#quantity.form-control(type='number' placeholder='Enter quantity' required='quantity' name='Quantity')
         .col
           label.form-label(for='price') Unit Price
-          input#price.form-control(type='number' placeholder='Enter price' required='' name='unit price')
+          input#price.form-control(type='number' placeholder='Enter price' required='unitPrice' name='unit price')
       button.btn.btn-success.w-100(type='submit') Add Stock

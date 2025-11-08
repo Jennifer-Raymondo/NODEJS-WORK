@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const StockModel = require('../models/stockModel');
+
+
 
 router.get('/registerStock', (req,res)=>{
    res.render('stock');
@@ -9,12 +12,24 @@ router.get('/registerStock', (req,res)=>{
 
 
 
-router.post('/registerStock', (req, res)=> {
-    console.log(req.body);
+router.post('/registerStock', async (req, res)=> {
+    try {
+        const stock = new StockModel(req.body)
+         console.log(req.body);
+        await stock.save()
+        res.redirect('/managerDashboard')
+    } catch (error) {
+       console.error(error)
+       res.redirect('/managerDashboard') 
+    }
 });
 
 
+router.get('/stock', (req,res) => {
+res.render('managerDashboard');
 
+
+});
 
 
 

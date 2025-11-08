@@ -2,14 +2,21 @@
 const express = require('express');
 const path  = require('path');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const expressSession = require('express-session');
+const MongoStore = require('connect-mongo');
+
 
 require('dotenv').config();
 
 
 //import Route
+const UserModel = require('./models/userModel');
 //const classRoutes = require('./routes/classRoutes');
 const authRoutes = require('./routes/authRoutes');
 const stockRoutes = require('./routes/stockRoutes');
+const managerDashboardRoutes = require('./routes/managerDashboardRoutes');
+const userModel = require('./models/userModel');
 //const captureStockRoutes = require('./routes/capture-stockRoutes');
 
 
@@ -54,27 +61,24 @@ app.set( 'views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }))  //it helps to pass data from forms
+//express session configs
+app.use(expressSession({
+  secret: process.env.SESSION_SECRET, 
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({mongoUrl:process.env.MONGODB_URL}),
+  cookie: {maxAge: 24*60*60*1000}  //one day
+}))
 
 
+//passport configs
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Simple request time logger
-// app.use((req, res, next) => {
-//    console.log("A new request received at " + Date.now());
-
-// This function call tells that more processing is
-// required for the current request and is in the next middleware
-//function/route handler.
-//  next();  
-// });
-
-//Simple request time logger for a specific route
-app.use('/home', (req, res, next) => {
-  console.log('A new request received at ' + Date.now());
-  next();
-});
-
-
-
+//Authenticate with passport stragty
+passport.use(UserModel.createStrategy());
+passport.serializeUser(UserModel.serializeUser());
+passport.deserializeUser(UserModel.deserializeUser());
 
 
 
@@ -85,6 +89,7 @@ app.use('/home', (req, res, next) => {
 //app.use('/', classRoutes);
 app.use('/', authRoutes);
 app.use('/',stockRoutes);
+app.use('/',managerDashboardRoutes);
 //app.use('/',captureStockRoutes);
 
 

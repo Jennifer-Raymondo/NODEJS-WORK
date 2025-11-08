@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capture Sale</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-5">
+
+  <div class="container">
+    <h2 class="text-center mb-4">Capture Sale</h2>
+
+    <!-- Sales Capture Form -->
+    <div class="card shadow p-4">
+      <form id="salesForm">
+        <div class="mb-3">
+          <label for="itemName" class="form-label">Item Sold</label>
+          <input type="text" id="itemName" class="form-control" placeholder="e.g. Sofa, Timber" required>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" id="quantity" class="form-control" placeholder="Enter quantity" required>
+          </div>
+          <div class="col">
+            <label for="unitPrice" class="form-label">Unit Price</label>
+            <input type="number" id="unitPrice" class="form-control" placeholder="Enter unit price" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="customer" class="form-label">Customer Name</label>
+          <input type="text" id="customer" class="form-control" placeholder="Enter customer name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="date" class="form-label">Date of Sale</label>
+          <input type="date" id="date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="salesAgent" class="form-label">Sales Agent</label>
+          <input type="text" id="salesAgent" class="form-control" placeholder="Enter agent name" required>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Save Sale</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

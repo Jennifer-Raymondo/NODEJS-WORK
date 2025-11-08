@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
+
 
 const managerSignupSchema = new mongoose.Schema({
   fullName: {
@@ -18,12 +20,11 @@ const managerSignupSchema = new mongoose.Schema({
     reqiured:true
   },
 
-  password: {
-     type: String,
-     reqiure:true
-  }
 });
 
 
 
+managerSignupSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email'
+});
 module.exports = mongoose.model('User', managerSignupSchema);
